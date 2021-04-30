@@ -2,12 +2,15 @@ const express = require('express'),
 router = express.Router();
 
 var
-// itemCtrl = require('./item-controller'),
+itemCtrl = require('./item-controller'),
 userCtrl = require('./user-controller');
+movieCtrl = require('./movie-controller');
 
-// router.get('/hello', itemCtrl.getWorld);
-// router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
-// router.post('/hello', itemCtrl.postWorld);
+router.get('/hello', itemCtrl.getWorld);
+router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
+router.post('/hello', itemCtrl.postWorld);
+
+router.get('/movies', movieCtrl.getMovies);
 
 router.post('/users', userCtrl.createUser);
 router.get('/users', userCtrl.getUsers);
