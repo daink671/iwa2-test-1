@@ -10,7 +10,11 @@ router.get('/hello', itemCtrl.getWorld);
 router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
 router.post('/hello', itemCtrl.postWorld);
 
+router.post('/movies', movieCtrl.createMovie);
 router.get('/movies', movieCtrl.getMovies);
+router.get('/movies/:id', movieCtrl.getMovie);
+router.put('/movies/:id', movieCtrl.updateMovie);
+router.delete('/movies/:id', movieCtrl.deleteMovie);
 
 router.post('/users', userCtrl.createUser);
 router.get('/users', userCtrl.getUsers);

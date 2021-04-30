@@ -1,5 +1,5 @@
 const http = require('http'),
-// axios = require('axios'),
+axios = require('axios'),
 logger = require('morgan'),
 cors = require('cors'),
 express = require('express'),
@@ -15,6 +15,17 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
+app.use(axios);
+
+// var cookieParser = require("cookie-parser");
+
+// app.use(logger("dev"));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+// app.use(cookieParser());
+
+app.use(express.static(path.join(__dirname, '/')));//connect read.js with index.html
+//app.use(express.static(path.join(__dirname, 'public')));//connect clinet.js with index.html
 
 app.get('/', (req, res) => {
     res.sendfile(path.resolve(__dirname, 'views', 'index.html'));//open html
